@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => res.send("Hello Youtube!"));
+app.get("/", (req, res) => res.send("Kryptos Technology!"));
 
 app.get("/health", (req, res) => {
   res.status(200);
-  res.send("healthy");
+  res.send("healthy Output");
 });
 
-app.listen(3000, () => {
-  console.log("App listening on port 3000!");
+app.listen(80, () => {
+  console.log("App listening on port 80!");
 });
