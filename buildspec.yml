@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 377348602056.dkr.ecr.ap-south-1.amazonaws.com
+      - $(aws ecr get-login --no-include-email)
   build:
     commands:
       - docker build -t fargate .
@@ -11,6 +11,6 @@ phases:
   post_build:
     commands:
       - docker push 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest
-      - printf '[{"name":<TASK_DEFINITION_NAME>,"imageUri":"%s"}]' 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest imagedefinitions.json
+      - printf '[{"name":fargate-td,"imageUri":"%s"}]' 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
