@@ -6,11 +6,11 @@ phases:
       - $(aws ecr get-login --no-include-email --region ap-south-1)
   build:
     commands:
-      - docker build -t fargate:latest .
-      - docker tag fargate:latest 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest
+      - docker build -t fargate1 .
+      - docker tag fargate1:latest 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate1:latest
   post_build:
     commands:
-      - docker push 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest
-      - printf '[{"name":fargate-td,"imageUri":"%s"}]' 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest imagedefinitions.json
+      - docker push 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate1:latest
+      - printf '[{"name":fargate-td,"imageUri":"%s"}]' 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate1:latest imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
