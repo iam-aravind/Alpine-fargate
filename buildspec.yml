@@ -13,4 +13,4 @@ phases:
       - docker push 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest
       - printf '[{"name":fargate-td,"imageUri":"%s"}]' 377348602056.dkr.ecr.ap-south-1.amazonaws.com/fargate:latest imagedefinitions.json
 artifacts:
-  files: imagedefinitions.json
+  files: $CODEBUILD_SRC_DIR/imagedefinitions.json
