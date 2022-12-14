@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => res.send("Kryptos Technology v0.2!"));
+app.get("/", (req, res) => res.send("Kryptos Technology v0.1!, Successfully Deployed the update"));
 
 app.get("/health", (req, res) => {
   res.status(200);
